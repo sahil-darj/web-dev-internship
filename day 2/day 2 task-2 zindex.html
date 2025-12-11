@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .div1 {
+        height: 100%;
+        width: 100%;
+       
+        display: flex;
+        padding: 50px 0px;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+
+      }
+      .div2, .div3, .div4 {
+        height: 500px;
+        position: absolute;
+        width: 500px;
+        border: 1px solid red;
+      
+      }
+      .div2{
+        top: 50px;
+        left: 500px;  
+         z-index:  1;
+      }
+        .div3{
+        top: 50px;
+        z-index: -1;
+        }
+        .div4{
+           right: 500px;
+            top: 50px; 
+            z-index:  -1;
+        }
+      
+    
+
+        .img1 {
+            
+            height: 100%;
+            width: 100%;
+         
+
+        }
+
+        .img2 {
+            height: 100%;
+            width: 100%;
+           
+        }
+        .img3 {
+            height: 100%;
+            width: 100%;
+           
+        }
+    </style>
+  </head>
+  <body>
+    <div class="div1">
+      <div class="div2">
+            <img class="img1" src="1.png" alt="1" />
+          </div>
+          <div class="div3">
+            <img class="img2" src="2.png" alt="1" />
+          </div>
+          <div class="div4">
+            <img class="img3" src="3.png" alt="1" />
+          </div>
+          
+        </div>
+      </div>
+
+      <!--<img class="img2" src="2.png" alt="2" />
+      <img class="img3" src="3.png" alt="3" />-->
+    </div>
+  </body>
+</html>

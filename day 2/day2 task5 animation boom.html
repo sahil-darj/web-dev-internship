@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Car and Bike Accident Animation</title>
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+        background: #000;
+      }
+
+      .road {
+        position: relative;
+        width: 100%;
+        height: 100vh;
+        background: url("road.webp") repeat-x center;
+        background-size: cover;
+        animation: moveroad 5s linear infinite;
+        overflow: hidden;
+      }
+
+      .car {
+        position: absolute;
+        bottom: 80px;
+        width: 200px;
+        left: -250px;
+        animation: car 3s linear infinite;
+      }
+
+      .bike {
+        position: absolute;
+        bottom: 100px;
+        width: 180px;
+        right: -250px;
+        animation: bike 3s linear infinite;
+      }
+
+      .crash {
+        position: absolute;
+        width: 150px;
+        left: 50%;
+        bottom: 120px;
+        transform: translateX(-50%);
+        opacity: 0;
+        animation: crash 3s linear infinite;
+      }
+
+      @keyframes moveroad {
+        from {
+          background-position-x: 0;
+        }
+        to {
+          background-position-x: -2000px;
+        }
+      }
+
+      @keyframes car {
+        0% {
+          left: -250px;
+        }
+        40% {
+          left: 45%;
+        }
+        100% {
+          left: 45%;
+        }
+      }
+
+      @keyframes bike {
+        0% {
+          right: -250px;
+        }
+        40% {
+          right: 45%;
+        }
+        100% {
+          right: 45%;
+        }
+      }
+
+      @keyframes crash {
+        0%,
+        40% {
+          opacity: 0;
+        }
+        50% {
+          opacity: 1;
+        }
+        60%,
+        100% {
+          opacity: 0;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="road">
+      <img src="car.png" class="car" alt="Car" />
+      <img src="bike2.png" class="bike" alt="Bike" />
+      <img src="crash.png" class="crash" alt="Crash" />
+    </div>
+  </body>
+</html>
