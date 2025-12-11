@@ -1,0 +1,1533 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+ 
+    <title>Car Webpage</title>
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        overflow-x: hidden;
+        position: relative;
+      }
+
+      .div {
+        background-color: black;
+        color: white;
+        height: 100px;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      .text1 {
+        margin-left: 100px;
+        font-size: 20px;
+      }
+      .text2 {
+        margin-right: 300px;
+        font-size: 20px;
+      }
+      .icon {
+        color: white;
+        margin-left: 10px;
+      }
+      .icon:hover {
+        color: #ff4d4d;
+       transition: 0.3s;
+      }
+      .div2 {
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+        background-color: white;
+        height: 120px;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        border-bottom: 1px solid #ccc;
+      }
+      .logo {
+        height: 60px;
+        margin-left: 50px;
+      }
+      .nav {
+        display: flex;
+        align-items: center;
+        gap: 30px;
+      }
+      .nav a,
+      .dropdown > button {
+        font-size: 20px;
+        text-decoration: none;
+        color: black;
+        font-weight: bold;
+        background: none;
+        border: none;
+        cursor: pointer;
+      }
+      .nav a.active {
+        color: red;
+      }
+      .dropdown {
+        position: relative;
+      }
+      .dropdown-content {
+        display: none;
+        position: absolute;
+        background-color: white;
+        top: 35px;
+        left: 0;
+        min-width: 160px;
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        border-radius: 6px;
+        overflow: hidden;
+        z-index: 999;
+      }
+      .dropdown-content a {
+        color: black;
+        padding: 12px 16px;
+        display: block;
+        transition: 0.3s;
+      }
+      .dropdown-content a:hover {
+        background-color: red;
+        color: white;
+      }
+      .dropdown:hover .dropdown-content {
+        display: block;
+      }
+      .section3 {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+        margin-right: 50px;
+      }
+      .icon2 {
+        color: black;
+        font-size: 30px;
+      }
+      .icon4 {
+        color: red;
+        font-size: 25px;
+        align-items: left;
+   
+      }
+      .accountbtn,
+      .dropdown-btn {
+        background-color: white;
+        color: red;
+        border: 2px solid red;
+        height: 55px;
+        width: 180px;
+        border-radius: 5px;
+        font-size: 18px;
+        font-weight: bold;
+        cursor: pointer;
+        transition: 0.3s;
+      }
+      .accountbtn:hover,
+      .dropdown-btn:hover {
+        background-color: red;
+        color: white;
+      }
+      .div3 {
+        height: 700px;
+        background-color: lightblue;
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        padding: 50px;
+      }
+      .left {
+        width: 50%;
+        text-align: left;
+      }
+      .btn {
+        background-color: #edbaaf;
+        color: red;
+        display: inline-block;
+        padding: 10px 20px;
+        border-radius: 50px;
+        font-weight: bold;
+        margin-bottom: 20px;
+      }
+      .h1 {
+        font-size: 50px;
+        margin-bottom: 20px;
+      }
+      .p {
+        font-size: 18px;
+        margin-bottom: 20px;
+      }
+      .getin {
+        background-color: black;
+        color: white;
+        border: none;
+        height: 60px;
+        width: 200px;
+        border-radius: 50px;
+        font-size: 20px;
+        font-weight: bold;
+        transition: 0.4s;
+      }
+      .getin:hover {
+        background-color: white;
+        color: red;
+        border: 3px solid red;
+      }
+      .section4 {
+        height: 250px;
+        width: 100%;
+        padding: 50px 0;
+
+        display: flex;
+        flex-direction: column;
+        align-items: left;
+        margin-left: 70px;
+
+        position: absolute;
+        top: 900px;
+      }
+      .Destination {
+        position: absolute;
+        display: flex;
+        align-items: left;
+
+        top: 0;
+      }
+      .accountbtn2 {
+        background-color: red;
+        color: white;
+        border: none;
+        height: 60px;
+        width: 150px;
+
+        font-size: 20px;
+        font-weight: bold;
+        cursor: pointer;
+        transition: 0.4s;
+      }
+      .accountbtn2:hover {
+        background-color: white;
+        color: red;
+        border: 2px solid red;
+      }
+
+      .accountbtn3 {
+        background-color: white;
+        color: black;
+        border: 2px solid black;
+        height: 60px;
+        width: 200px;
+        border-radius: 25px;
+        font-size: 20px;
+        font-weight: bold;
+        cursor: pointer;
+        transition: 0.4s;
+      }
+      .accountbtn3:hover {
+        background-color: red;
+        color: white;
+        border: 2px solid red;
+      }
+      .sectioninner {
+        background-color: white;
+        margin-left: 00px;
+        border-radius: 10px;
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        font-size: 25px;
+        width: 2100px;
+        padding: 25px;
+        gap: 70px;
+        position: absolute;
+      }
+
+      .icon3 {
+        color: red;
+        font-size: 40px;
+        margin-bottom: 10px;
+      }
+      .btn2 {
+        background-color: red;
+        color: white;
+        border: none;
+        height: 80px;
+        width: 220px;
+        border-radius: 50px;
+        font-size: 22px;
+        font-weight: bold;
+        transition: 0.4s;
+      }
+      .btn2:hover {
+        background-color: white;
+        color: red;
+        border: 3px solid red;
+      }
+      .brand {
+        padding: 50px 0;
+        background-color: rgb(255, 255, 255);
+        margin-left: 50px;
+        width: 100%;
+        height: 500px;
+        margin-top: 150px;
+        height: auto;
+      }
+      .brand2 {
+        padding: 50px 0;
+        background-color: rgb(255, 255, 255);
+        margin-left: 50px;
+        width: 100%;
+        height: 500px;
+      
+        height: auto;
+      }
+      .brands {
+        font-size: 40px;
+        text-align: left;
+        display: flex;
+        align-items: center;
+        gap: 1400px;
+      }
+
+      .brandimg {
+        display: flex;
+    gap: 40px;
+        flex-wrap: wrap;
+      }
+      .pc{
+      
+        background-color: #f5f5f5;
+
+      }
+
+      .b1 {
+        height: 400px;
+        width: 400px;
+        position: relative;
+        background-color: rgb(253, 248, 248);
+     
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 10px;
+      }
+      .b1:hover{
+        background-color: rgb(250, 245, 245);
+        shadow-box: 0 4px 8px rgba(255, 255, 255, 0.88);
+        scale: 1.05;
+        transition: 0.3s;
+      }
+      .b2 {
+        height: 400px;
+        width: 400px;
+        position: relative;
+        background-color: rgb(255, 255, 255);
+        border: 1px solid rgb(221, 216, 216);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 10px;
+      }
+
+      .b2:hover {
+      
+        shadow-box: 0 4px 8px rgba(245, 242, 242, 0.9);
+        scale: 1.03;
+        transition: 0.3s;
+      }
+
+      .bimg {
+       height: 250px;
+         width: 250px;
+        
+      }
+      .bimg img{
+        height: 100%;
+        width: 100%;
+      }
+      .bimg2 {
+
+        height: 200px;
+          width: 300px;
+
+         
+       }
+       .bimg2 img{
+         height: 100%;
+         width: 100%;
+       }
+      .brandtext {
+        position: absolute;
+        bottom: 5px;
+        font-size: 25px;
+      }
+      .center-box {
+        text-align: center;
+        margin-top: 50px;
+      }
+
+     
+
+      .bimg3 {
+        height: 400px;
+        width: 400px;
+        position: absolute;
+      }
+
+      .b3 {
+        height: 800px;
+        width: 600px;
+        position: relative;
+        background-color: rgb(255, 0, 0);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 20px;
+        margin-left: 100px;
+      }
+
+      .xyz {
+        width: 30%;
+        height: 850px;
+        background-color: white;
+        border-radius: 15px;
+        padding: 20px;
+        position: relative;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+
+      .xyz:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+      }
+
+      .xyz img {
+        width: 100%;
+        height: 250px;
+        object-fit: cover;
+        display: block;
+        transition: transform 0.5s;
+      }
+
+      .xyz img:hover {
+        transform: scale(1.05);
+      }
+
+      .xyz2 {
+        width: 30%;
+        height: 850px;
+        background-color: white;
+        border-radius: 15px;
+        padding: 20px;
+        position: relative;
+        
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+
+    
+
+      .xyz2 img {
+        width: 100%;
+        height: 250px;
+        object-fit: cover;
+        display: block;
+        transition: transform 0.5s;
+      }
+
+      .xyz2 img:hover {
+        transform: scale(1.15);
+      }
+
+
+      .price-tag {
+        position: absolute;
+        top: 30px;
+        right: 30px;
+        background-color: rgb(255, 255, 255);
+        color: #ff4d4d;
+        font-weight: bold;
+        padding: 8px 14px;
+        border-radius: 25px;
+        font-size: 15px;
+      }
+
+      .details {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 50px 20px;
+        border-bottom: 1px solid #eee;
+        
+      }
+
+      .details h2 {
+        font-size: 30px;
+        color: #222;
+        margin: 0;
+      }
+
+      .detailss h2 {
+        font-size: 35px;
+        color: black;
+        text-align:left;
+        margin: 0;
+      }
+.rentnow{
+  background-color: white;
+  color: black;
+  border: 1px solid black;
+  height: 50px;
+  width: 650px;
+  display: block;
+  
+  border-radius: 10px;
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.4s;
+  margin-top: 40px;
+}
+
+.tb{
+  background-color: white;
+  color: red;
+  border: 1px solid red;
+  height: 50px;
+  width: 300px;
+  display: block;
+  
+  border-radius: 10px;
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.4s;
+
+}
+.rentnow:hover {
+  background-color: red;
+  color: white;
+  border: 2px solid white;
+}
+      .rating {
+        display: flex;
+        align-items: center;
+        gap: 7px;
+        color: #ffb400;
+        font-weight: bold;
+        border: 2px solid lightgray;
+        font-size: 25px;
+        border-radius: 10px;
+        padding: 5px 10px;
+      }
+
+      .cal {
+        display: flex;
+        align-items: center;
+        gap: 7px;
+        color:rgb(0, 0, 0);
+        font-weight: bold;
+        border: 2px solid lightgray;
+        font-size: 25px;
+        border-radius: 10px;
+        padding: 5px 10px;
+      }
+
+      .desc {
+    margin-right: 100px;
+        font-size: 25px;
+        text-align: left;
+        color: #555;
+        padding: 20px;
+       
+      }
+
+      .info {
+    
+ 
+   margin-left: 20px;
+        font-size: 14px;
+        color: #333;
+        
+       
+      
+      }
+
+      .info i {
+      
+        
+        color: #ff4d4d;
+       
+      }
+
+      .info p {
+        
+      display: flex;
+    gap: 10px;
+      align-items: center;
+      
+
+      
+    
+        font-size:15px;
+       
+      }
+      .body {
+        background-color: #f5f5f5;
+        display: flex;
+        
+      justify-content: space-around;
+       
+      }
+      .imghover img{
+        width: 100%;
+        height: 100%;
+        border-radius: 10px;
+       
+    
+      }
+
+      .imghover: hover{  transform: scale(1.02);
+        
+      }
+      .wearethebest{
+        height: 500px;
+        width: 100%;
+        display: flex;
+    
+      align-items: left;
+       
+        margin-left: 70px;
+       
+      }
+      .bestbtn{
+        background-color:rgb(232, 192, 192);
+        color:rgb(242, 29, 29);;
+        border: none;
+        height: 60px;
+        width: 200px;
+    
+        font-size: 20px;
+        font-weight: bold;
+        cursor: pointer;
+        transition: 0.4s;
+      }
+      .explore{
+        font-size: 70px;
+        text-align: left;
+        margin-top: 50px;
+       
+      }
+      .wrbest{
+        height: 400px;
+        width: 40%;
+        display: flex;
+        flex-direction: column;
+        
+      }
+
+      .box1{
+     
+      
+        height: 400px;
+        width: 500px;
+        border-radius: 20px;
+     
+        background-color: white;
+      }
+      .box1:hover{
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+        transition: 0.3s;
+      }
+      .box{
+        background-color:rgb(237, 237, 237);
+        border-radius: 20px;
+        gap: 70px;
+        height: 400px;
+        width: 1000px;
+        display: flex;
+        float:right;
+        position:relative;
+      }
+
+      .boxinner{
+        position: absolute;
+        display: flex;
+     margin-top: 70px;
+     margin-left: 50px;
+        border: 1px solid black;
+        border-radius: 10px;
+        height: 100px;
+        width: 100px;
+      }
+      .box1 h3{
+        display: flex;
+        flow-direction: column;
+        font-size: 30px;
+       
+        text-align: left;
+        margin-top: 230px;
+        margin-left: 50px;
+      }
+      .box1 p{
+       font-size: 18px;
+       color: gray;
+     
+        margin-left: 50px;
+      
+      }
+
+      .loc{
+        color: black;
+        font-size: 60px;
+       margin: auto;
+      }
+
+      
+      .loc2{
+        position: absolute;
+        color: white;
+        animation: move 1s infinite;
+        font-size: 60px;
+       margin-top: 250px;
+      }
+
+      @keyframes move {
+
+        from {
+    transform: scaley(20%);
+  }
+  to {
+    transform: scale(100%);
+  }
+      }
+
+      .slider {
+  overflow: hidden;
+  width: 100%;
+  height: 300px; /* adjust height as needed */
+  position: relative;
+}
+
+.animation {
+  display: flex;
+  width: 200%; /* doubled width for seamless scroll */
+  animation: scrollRight 25s linear infinite;
+}
+
+.animationimg {
+  flex: 0 0 20%; /* 5 images = 20% each */
+}
+
+.animationimg img {
+  width: 100%;
+  height: 500px; /* adjust as needed */
+  object-fit: cover;
+  display: block;
+}
+
+/* Keyframes for continuous left-to-right scroll */
+@keyframes scrollRight {
+  from {
+    transform: translateX(-50%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+.divimg{
+ 
+  height:1000px;
+  width: 100%;
+  display: flex;
+  justify-content:center;
+  align-items:center;
+  margin-top:40px;
+ 
+}
+.divimg2{
+
+
+display:flex;
+
+  height:600px;
+  width:100%;
+
+
+  margin-top:50px;
+
+
+}
+.divimg2 a img{
+  border-radius: 25px;
+  border: 9px solid lightgray;
+  height: 100%;
+  width: 100%;
+}
+.LatestNews{
+  display: flex; 
+  justify-content: space-around;
+  height:400px;
+  width:100%;
+}
+.videoimg{
+  height:100%;
+  width: 90%;
+  padding: 20px;
+  position: relative;
+}
+
+.videoimg a img{
+  height:100%;
+  width: 100%;
+}
+.videoimg a i{
+  position:absolute;
+  top:30%;
+  left:50%;
+}
+.h2hover:hover{
+  color:red;
+  transition: 0.3s;
+}
+.footer {
+  background-color: #222;
+  background-image: url("./src/footer-bg.jpg");
+  
+ 
+  background-size: cover;
+
+  width: 100%;
+  height: 600px; 
+  margin-top: 300px;
+  position: relative;
+  
+}
+
+.footer2 {
+  display: flex;
+  gap:180px;
+height:400px;
+width: 100%;
+
+  padding: 50px 0;
+}
+
+.footer1 {
+
+  width: 400px;
+  color: white;
+  text-align: left;
+}
+
+.footer3{
+  display: flex;
+  justify-content: space-between;
+ height:80px;
+ width:100%;
+}
+
+.footer1 .logoo {
+  margin-left:50px;
+  margin-top:50px;
+  height: 80px;
+  width: 250px;
+
+}
+
+.footer1 .logo {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+
+
+.h5{
+
+  
+  margin-left: 100px;
+ font-size: 20px;
+ font-weight:bold ;
+ color:white; 
+ cursor: pointer;
+}
+
+.h5:hover{
+color:#ff4d4d;
+transition:0.3s;
+}
+
+.pfooter{
+  color:lightgray; 
+  font-size:20px;
+}
+.pfooter2{
+  color:lightgray; 
+  font-size:20px;
+  gap:20px;
+}
+
+.pfooter:hover{
+  color:#ff4d4d;
+  transition: 0.3s;
+  cursor: pointer;
+}
+.inputcon {
+  background-color: transparent; 
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  width: 360px;
+  height: 55px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 5px;
+  overflow: hidden;
+  backdrop-filter: blur(5px);
+}
+.inputcon:hover{
+  border: 1px solid #ff4d4d;
+}
+
+.email {
+  background: transparent;
+  border: none;
+  outline: none;
+  color: white;
+  flex: 1;
+  padding: 0 15px;
+  font-size: 15px;
+}
+
+
+
+
+.subbtn {
+  background-color: #ff4d4d;
+  color: white;
+  border-radius: 8px;
+  padding: 10px 20px;
+  margin-right:10px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ;
+}
+
+
+
+
+    </style>
+  </head>
+  <body>
+    <div class="div">
+      <p class="text1">Open Hours: Mon - Fri 8.00 am - 6.00 pm</p>
+      <p class="text2">
+        On Socials:
+        <i class="fa-brands icon fa-facebook"></i>
+        <i class="fa-brands icon fa-twitter"></i>
+        <i class="fa-brands icon fa-linkedin-in"></i>
+      </p>
+    </div>
+
+    <div class="div2">
+      <img src="./src/logo.png" alt="Company Logo" class="logo" />
+      <div class="nav">
+        <div class="dropdown">
+          <button class="active">Home</button>
+          <div class="dropdown-content">
+            <a href="#">1</a>
+            <a href="#">2</a>
+            <a href="#">3</a>
+            <a href="#">4</a>
+          </div>
+        </div>
+        <div class="dropdown">
+          <button>Car Fleet</button>
+          <div class="dropdown-content">
+            <a href="#">1</a>
+            <a href="#">2</a>
+            <a href="#">3</a>
+            <a href="#">4</a>
+          </div>
+        </div>
+
+        <div class="dropdown">
+          <button>Pages</button>
+          <div class="dropdown-content">
+            <a href="#">1</a>
+            <a href="#">2</a>
+            <a href="#">3</a>
+            <a href="#">4</a>
+          </div>
+        </div>
+
+        <div class="dropdown">
+          <button>News</button>
+          <div class="dropdown-content">
+            <a href="#">1</a>
+            <a href="#">2</a>
+            <a href="#">3</a>
+            <a href="#">4</a>
+          </div>
+        </div>
+
+        <div class="dropdown">
+          <button>Contact</button>
+          <div class="dropdown-content">
+            <a href="#">1</a>
+            <a href="#">2</a>
+            <a href="#">3</a>
+            <a href="#">4</a>
+          </div>
+        </div>
+      </div>
+      <div class="section3">
+        <i class="fa-solid icon2 fa-magnifying-glass"></i>
+        <button class="dropdown-btn">Select Country</button>
+        <button class="accountbtn">Account</button>
+      </div>
+    </div>
+
+    <div class="div3">
+      <div class="left">
+        <div class="btn">CAR RENTAL</div>
+        <h1 class="h1">
+          Find Affordable Dream <br />
+          Cars for Rental
+        </h1>
+        <p class="p">
+          Fulfill your automotive fantasies without breaking the bank. Check out
+          our extensive collection of affordable dream cars available for
+          rental.
+        </p>
+        <button class="getin">Get In Touch</button>
+      </div>
+      <img src="./src/car.png" alt="Car Image" style="max-width: 900px" />
+    </div>
+
+    <div class="section4">
+      <div class="Destination">
+        <button class="accountbtn2">Cars</button>
+        <button class="accountbtn2">Trucks</button>
+      </div>
+
+      <div class="sectioninner">
+        <div style="display: flex; align-items: center; gap: 20px">
+          <i class="fa-solid fa-map-location-dot icon3"></i>
+          <div style="border-right: 2px solid gray; padding-right: 60px">
+            <p style="margin: 0">Your Destination</p>
+            <p style="margin: 0"><b>India</b></p>
+          </div>
+        </div>
+
+        <div style="display: flex; align-items: center; gap: 20px">
+          <i class="fa-solid fa-calendar-week icon3"></i>
+          <div style="border-right: 2px solid gray; padding-right: 60px">
+            <p style="margin: 0">When To Start</p>
+            <p style="margin: 0"><b>04-Nov-2025</b></p>
+          </div>
+        </div>
+
+        <div style="display: flex; align-items: center; gap: 20px">
+          <i class="fa-solid fa-calendar-week icon3"></i>
+          <div style="border-right: 2px solid gray; padding-right: 60px">
+            <p style="margin: 0">When To Finish</p>
+            <p style="margin: 0"><b>06-Nov-2025</b></p>
+          </div>
+        </div>
+
+        <div style="display: flex; align-items: center; gap: 20px">
+          <i class="fa-solid fa-user-group icon3"></i>
+          <div style="border-right: 2px solid gray; padding-right: 60px">
+            <p style="margin: 0">Passengers</p>
+            <p style="margin: 0"><b>1 Adult, 0 Child</b></p>
+          </div>
+        </div>
+
+        <button class="btn2">Search</button>
+      </div>
+    </div>
+
+    <div class="brand">
+      <button class="accountbtn2">Brands</button>
+
+      <h1 class="brands">
+        Explore Premium Car Brands
+        <button class="accountbtn3">See All Brands</button>
+      </h1>
+
+      <div class="brandimg">
+        <div class="b1">
+          <div class="bimg">
+            <img src="./src/audi.png" alt="Brand 1" />
+            </div>
+          
+          <h4 class="brandtext">Audi</h4>
+        </div>
+    
+    
+        <div class="b1">
+          <div class="bimg">
+            <img src="./src/m.png" alt="Brand 2" />
+            </div>
+            <h4 class="brandtext">Mercedes</h4>
+          </div>
+
+          <div class="b1">
+            <div class="bimg">
+            <img src="./src/bmw2.png" alt="Brand 3" />
+            </div>
+            <h4 class="brandtext">BMW</h4>
+          </div>
+
+          <div class="b1">
+            <div class="bimg">
+            <img src="./src/kia.png" alt="Brand 4" />
+            </div>
+            <h4 class="brandtext">KIA</h4>
+          </div>
+
+          <div class="b1">
+            <div class="bimg">
+            <img src="./src/i.png" alt="Brand 3" />
+            </div>
+            <h4 class="brandtext">Infiniti</h4>
+          </div>
+        </div>
+      </div>    </div>
+      
+    <div class="pc">
+      <div class="center-box">
+        <button class="accountbtn2">Popular Cars</button>
+        <h1 class="center-box">Most Popular Cars</h1>
+     
+        <div class="body">
+         
+          <div class="xyz">
+            <div class="imghover" style="overflow: hidden; border-radius: 10px; height: 400px; width: 100%;"> 
+            <img src="./src/tlc.jpg" alt="Car"  />
+            </div>
+            <div class="price-tag">$49 / Day</div>
+            <div class="details">
+              <h2>Toyota Land Cruiser</h2>
+              <div class="rating">
+                <i class="fa-solid fa-star"></i>
+                <span>4.8</span>
+              </div>
+            </div>
+            <div class="desc">
+              Affordable electric sedans with impressive range, technology & minimalist design
+            </div>
+            <div class="info">
+              <p><i class="fa-solid fa-door-open"></i>Doors: 2 Doors</p>
+              <p>
+                <i class="fa-solid fa-suitcase"></i>Suitcase: 1 Large, 2 Small
+              </p>
+              <p><i class="fa-solid fa-user"></i>Passengers: 06</p>
+              <button class="rentnow">Rent Now</button>
+            </div>
+          </div>
+
+          <div class="xyz">
+            <div class="imghover" style="overflow: hidden; border-radius: 10px; height: 400px; width: 100%;">
+            <img src="./src/ngtr.webp" alt="Car"  />
+            </div>
+            <div class="price-tag">$49 / Day</div>
+            <div class="details">
+              <h2>Nissan GTR Turbo</h2>
+              <div class="rating">
+                <i class="fa-solid fa-star"></i>
+                <span>4.8</span>
+              </div>
+            </div>
+            <div class="desc">
+              Compact car available as sedan hatchback, renowned for its
+              all-wheel drive.
+            </div>
+            <div class="info">
+              <p><i class="fa-solid fa-door-open"></i>Doors: 2 Doors</p>
+              <p>
+                <i class="fa-solid fa-suitcase"></i>Suitcase: 1 Large, 2 Small
+              </p>
+              <p><i class="fa-solid fa-user"></i>Passengers: 06</p>
+              <button class="rentnow">Rent Now</button>
+            </div>
+          </div>
+
+          <div class="xyz">
+            <div class="imghover" style="overflow: hidden; border-radius: 10px; height: 400px; width: 100%;">
+            <img src="./src/mm.jpg" alt="Car"  />
+            </div>
+            <div class="price-tag">$49 / Day</div>
+            <div class="details">
+              <h2>Mitsubishi Portan</h2>
+              <div class="rating">
+                <i class="fa-solid fa-star"></i>
+                <span>4.8</span>
+              </div>
+            </div>
+            <div class="desc">
+              Luxury compact SUV featuring as a premium interior, advanced technology
+            </div>
+            <div class="info">
+              <p><i class="fa-solid fa-door-open"></i>Doors: 2 Doors</p>
+              <p>
+                <i class="fa-solid fa-suitcase"></i>Suitcase: 1 Large, 2 Small
+              </p>
+              <p><i class="fa-solid fa-user"></i>Passengers: 06</p>
+              <button class="rentnow">Rent Now</button>
+            </div>
+          </div>
+          
+
+          
+
+          
+        </div>
+
+        <div class="body" style="margin-top: 50px;">
+         
+          <div class="xyz">
+            <div class="imghover" style="overflow: hidden; border-radius: 10px; height: 400px; width: 100%;">
+            <img src="./src/jw.jpeg" alt="Car"  />
+            </div>
+            <div class="price-tag">$49 / Day</div>
+            <div class="details">
+              <h2>Jeep Wagner</h2>
+              <div class="rating">
+                <i class="fa-solid fa-star"></i>
+                <span>4.8</span>
+              </div>
+            </div>
+            <div class="desc">
+              Three-row SUV with a modern design, upscale interior, and a plethora of safety
+            </div>
+            <div class="info">
+              <p><i class="fa-solid fa-door-open"></i>Doors: 2 Doors</p>
+              <p>
+                <i class="fa-solid fa-suitcase"></i>Suitcase: 1 Large, 2 Small
+              </p>
+              <p><i class="fa-solid fa-user"></i>Passengers: 06</p>
+              <button class="rentnow">Rent Now</button>
+            </div>
+          </div>
+
+          <div class="xyz">
+            <div class="imghover" style="overflow: hidden; border-radius: 10px; height: 400px; width: 100%;">
+            <img src="./src/bmwm4.jpg" alt="Car"  />
+            </div>
+            <div class="price-tag">$49 / Day</div>
+            <div class="details">
+              <h2>BMW 740L Series</h2>
+              <div class="rating">
+                <i class="fa-solid fa-star"></i>
+                <span>4.8</span>
+              </div>
+            </div>
+            <div class="desc">
+              Iconic muscle car with the classic, powerful engines, and agile handling
+            </div>
+            <div class="info">
+              <p><i class="fa-solid fa-door-open"></i>Doors: 2 Doors</p>
+              <p>
+                <i class="fa-solid fa-suitcase"></i>Suitcase: 1 Large, 2 Small
+              </p>
+              <p><i class="fa-solid fa-user"></i>Passengers: 06</p>
+              <button class="rentnow">Rent Now</button>
+            </div>
+          </div>
+
+          <div class="xyz">
+            <div class="imghover" style="overflow: hidden; border-radius: 10px; height: 400px; width: 100%;">
+            <img src="./src/bmwm5.avif" alt="Car"  />
+            </div>
+            <div class="price-tag">$49 / Day</div>
+            <div class="details">
+              <h2>BMW M5 Competition</h2>
+              <div class="rating">
+                <i class="fa-solid fa-star"></i>
+                <span>4.8</span>
+              </div>
+            </div>
+            <div class="desc">
+              Robust full-size pickup truck with powerful towing capabilities
+            </div>
+            <div class="info">
+              <p><i class="fa-solid fa-door-open"></i>Doors: 2 Doors</p>
+              <p>
+                <i class="fa-solid fa-suitcase"></i>Suitcase: 1 Large, 2 Small
+              </p>
+              <p><i class="fa-solid fa-user"></i>Passengers: 06</p>
+              <button class="rentnow">Rent Now</button>
+            </div>
+          </div>
+    
+        </div>
+
+        
+        
+    </div>
+    <div class="center-box">
+      <button class="accountbtn2">Car Types</button>
+      <h1 class="center-box">Explore Car Types</h1>
+    </div>
+    <div class="brand2">
+      <div class="brandimg">
+        <div class="b2">
+          <div class="bimg2">
+            <img src="./src/sc.avif" alt="Brand 1" />
+            </div>
+          
+          <h4 class="brandtext">Audi</h4>
+        </div>
+    
+    
+        <div class="b2">
+          <div class="bimg2">
+            <img src="./src/t.jpg" alt="Brand 2" />
+            </div>
+            <h4 class="brandtext">Mercedes</h4>
+          </div>
+
+          <div class="b2">
+            <div class="bimg2">
+            <img src="./src/ls.webp" alt="Brand 3" />
+            </div>
+            <h4 class="brandtext">BMW</h4>
+          </div>
+
+          <div class="b2">
+            <div class="bimg2">
+            <img src="./src/suv.avif" alt="Brand 4" />
+            </div>
+            <h4 class="brandtext">KIA</h4>
+          </div>
+
+          <div class="b2">
+            <div class="bimg2">
+            <img src="./src/s.jpg" alt="Brand 3" />
+            </div>
+            <h4 class="brandtext">Infiniti</h4>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="wearethebest">
+    <div class="wrbest">
+    <button class="bestbtn">We are the best</button>
+
+    <h1 class="explore">
+      Explore the world 
+      <br>
+      with your own way
+     <br>
+      of driving
+
+    </h1>
+  
+  </div>
+  <div class="box">
+  <div class="box1">
+    <div class="boxinner">
+      <i class="fa-solid loc fa-location-dot"></i>
+      
+
+    </div>
+    <h3>Free Pick Up & Drop </h3>
+      <p>Your convenience matter. Complimentary pick-up and drop-off service for any your vehicle, a stress-free experience.</p>
+
+</div>
+<div class="box1">
+  <div class="boxinner">
+    <i class="fa-solid loc fa-person-military-to-person"></i>
+    
+
+  </div>
+  <h3>24/7 Road Assistant </h3>
+    <p>No matter the time or place, and our 24/7 roadside assistance ensures you're never stranded. Drive confidently with support.</p>
+
+</div>
+
+  </div>
+</div>
+
+<div class="animation">
+  <div class="animationimg"><img src="./src/image-1.jpg" /></div>
+  <div class="animationimg"><img src="./src/image-2.jpg" /></div>
+  <div class="animationimg"><img src="./src/image-3.jpg" /></div>
+  <div class="animationimg"><img src="./src/image-4.jpg" /></div>
+  <div class="animationimg"><img src="./src/image-5.jpg" /></div>
+
+  <!-- duplicate for seamless loop -->
+  <div class="animationimg"><img src="./src/image-1.jpg" /></div>
+  <div class="animationimg"><img src="./src/image-2.jpg" /></div>
+  <div class="animationimg"><img src="./src/image-3.jpg" /></div>
+  <div class="animationimg"><img src="./src/image-4.jpg" /></div>
+  <div class="animationimg"><img src="./src/image-5.jpg" /></div>
+</div>
+
+<div class="divimg">
+ 
+  <div class="videoimg">
+   
+    <a href="">       <i class="fa-solid fa-video loc2"></i>
+      <img src="./src/carr.avif" alt="">
+     
+    </a>
+
+  </div>
+</div>
+
+  <div class="center-box">
+    <button class="accountbtn2">Latest News</button>
+    <h1 class="center-box">Latest Press Update</h1>
+    <div class="LatestNews">
+    <div class="xyz2">
+      <div class="imghover" style="overflow: hidden; border-radius: 10px; height: 400px; width: 100%;"> 
+      <img src="./src/tlc.jpg" alt="Car"  />
+      </div>
+   
+      <div class="details">
+        <button class="tb">Travel Blog</button>
+        <div class="cal">
+          <i class="fa-solid fa-calendar-days"></i>
+          <span>20 Mar, 2024</span>
+        </div>
+      </div>
+      <div class="detailss">
+        <h2 class="h2hover" >T10 European ski destinations you should visit this winter</h2>
+      </div>
+     
+    
+    </div>
+
+    <div class="xyz2">
+      <div class="imghover" style="overflow: hidden; border-radius: 10px; height: 400px; width: 100%;"> 
+      <img src="./src/bmwm4.jpg" alt="Car"  />
+      </div>
+   
+      <div class="details">
+        <button class="tb">Covid Travel</button>
+        <div class="cal">
+          <i class="fa-solid fa-calendar-days"></i>
+          <span>20 Mar, 2024</span>
+        </div>
+      </div>
+      <div class="detailss">
+        <h2 class="h2hover" >Booking travel during Corona: Find who are giving service</h2>
+      </div>
+     
+    
+    </div>
+
+    <div class="xyz2">
+      <div class="imghover" style="overflow: hidden; border-radius: 10px; height: 400px; width: 100%;"> 
+      <img src="./src/s.jpg" alt="Car"  />
+      </div>
+   
+      <div class="details">
+        <button class="tb">Travel Blog</button>
+        <div class="cal">
+          <i class="fa-solid fa-calendar-days"></i>
+          <span>20 Mar, 2024</span>
+        </div>
+      </div>
+      <div class="detailss">
+        <h2 class="h2hover">Change your place and get the fresh air from the nature</h2>
+      </div>
+     
+    
+    </div>
+      
+  </div>
+</div>
+
+<div class="footer">
+  <div class="footer2">
+    <div class="footer1">
+      <div class="logoo">
+        <img src="./src/logoo.png" alt="Company Logo" class="logo" />
+      </div>
+      <p style=" color:lightgray; 
+  font-size:20px; margin-left:100px;">57 Heol Isaf Station Road, Cardiff, UK</p>
+    
+      <h5 class="h5">info@example.com</h5>
+      <h5 class="h5">029 2021 4012</h5>
+    </div>
+
+    <div class="footer1">
+      <h5 style="font-size:35px;">Resources</h5>
+      <p class="pfooter">About Team</p>
+      <p class="pfooter">Policies</p>
+      <p class="pfooter">Careers</p>
+      <p class="pfooter">Press</p>
+      <p class="pfooter">Open Road</p>
+     
+   
+    </div>
+
+    <div class="footer1">
+      <h5 style="font-size:35px;">Community</h5>
+      <p class="pfooter">Newsletter</p>
+      <p class="pfooter">Reviews
+        </p>
+      <p class="pfooter">Testimonials</p>
+      <p class="pfooter">Social Group</p>
+      <p class="pfooter">Helpdesk</p>
+     
+   
+    </div>
+
+    <div class="footer1">
+      <h5 style="font-size:35px;">Subscribe Newsletter</h5>
+      <p class="pfooter" >Our estimated global carbon emissions by investing in greenhouse</p>
+      <br>
+      
+      <div class="inputcon">
+        <input type="email" placeholder="Email Address" class="email">
+        <button class="subbtn">Subscribe</button>
+      </div>
+   
+    </div>
+  </div>
+  <hr style="color:lightgray; opacity: 0.4; width: 90%;">
+  <div class="footer3">
+   
+     
+    
+  
+    <p style="color:lightgray; margin-left:120px; font-size:20px;">Copyright © 2025  <span style="color:#ff4d4d">Carola</span>, Inc. All Rights Reserved</p>
+    <p class="pfooter2" style="margin-right: 150px;">
+     
+        Follow Us On:
+        <i class="fa-brands icon fa-facebook"></i>
+        <i class="fa-brands icon fa-twitter"></i>
+        <i class="fa-brands icon fa-linkedin-in"></i>
+        <i class="fa-brands icon fa-instagram"></i>
+      </p>
+ 
+  </div>
+
+</div>
+
+
+  
+
+
+  </body>
+</html>

@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Car Cards</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+    <style>
+      body {
+        padding: 40px;
+
+        justify-content: center;
+      }
+
+      .b1 {
+        width: 350px;
+        background-color: white;
+        border-radius: 15px;
+        overflow: hidden;
+        position: relative;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+
+      .b1:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+      }
+
+      .b1 img {
+        width: 100%;
+        height: 220px;
+        object-fit: cover;
+        display: block;
+        transition: transform 0.5s;
+      }
+
+      .b1 img:hover {
+        transform: scale(1.05);
+      }
+
+      /* price badge on top-right */
+      .price-tag {
+        position: absolute;
+        top: 15px;
+        right: 15px;
+        background-color: #ff4d4d;
+        color: white;
+        font-weight: bold;
+        padding: 8px 14px;
+        border-radius: 25px;
+        font-size: 15px;
+      }
+
+      .details {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 15px 20px;
+        border-bottom: 1px solid #eee;
+      }
+
+      .details h2 {
+        font-size: 20px;
+        color: #222;
+        margin: 0;
+      }
+
+      .rating {
+        display: flex;
+        align-items: center;
+        gap: 5px;
+        color: #ffb400;
+        font-weight: bold;
+        font-size: 16px;
+      }
+
+      .desc {
+        padding: 0 20px 20px 20px;
+        color: #555;
+        font-size: 14px;
+        line-height: 1.5;
+      }
+
+      .info {
+        padding: 10px 20px 20px 20px;
+        font-size: 14px;
+        color: #333;
+      }
+
+      .info i {
+        color: #ff4d4d;
+        margin-right: 8px;
+      }
+
+      .info p {
+        margin: 8px 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="b1">
+      <img src="sc.avif" alt="Car" />
+      <div class="price-tag">$49 / Day</div>
+      <div class="details">
+        <h2>Toyota Land Cruiser</h2>
+        <div class="rating">
+          <i class="fa-solid fa-star"></i>
+          <span>4.8</span>
+        </div>
+      </div>
+      <div class="desc">
+        Affordable electric sedan with impressive range, technology & minimalist
+        design.
+      </div>
+      <div class="info">
+        <p><i class="fa-solid fa-door-open"></i>Doors: 2 Doors</p>
+        <p><i class="fa-solid fa-suitcase"></i>Suitcase: 1 Large, 2 Small</p>
+        <p><i class="fa-solid fa-user"></i>Passengers: 06</p>
+      </div>
+    </div>
+
+    <div class="b1">
+      <img src="sc.avif" alt="Car" />
+      <div class="price-tag">$49 / Day</div>
+      <div class="details">
+        <h2>Nissan GTR Turbo</h2>
+        <div class="rating">
+          <i class="fa-solid fa-star"></i>
+          <span>4.8</span>
+        </div>
+      </div>
+      <div class="desc">
+        Compact car available as sedan hatchback, renowned for its all-wheel
+        drive.
+      </div>
+      <div class="info">
+        <p><i class="fa-solid fa-door-open"></i>Doors: 2 Doors</p>
+        <p><i class="fa-solid fa-suitcase"></i>Suitcase: 1 Large, 2 Small</p>
+        <p><i class="fa-solid fa-user"></i>Passengers: 06</p>
+      </div>
+    </div>
+
+    <div class="b1">
+      <img src="sc.avif" alt="Car" />
+      <div class="price-tag">$49 / Day</div>
+      <div class="details">
+        <h2>Mitsubishi Portan</h2>
+        <div class="rating">
+          <i class="fa-solid fa-star"></i>
+          <span>4.8</span>
+        </div>
+      </div>
+      <div class="desc">
+        Luxury compact SUV featuring premium interior and advanced technology.
+      </div>
+      <div class="info">
+        <p><i class="fa-solid fa-door-open"></i>Doors: 2 Doors</p>
+        <p><i class="fa-solid fa-suitcase"></i>Suitcase: 1 Large, 2 Small</p>
+        <p><i class="fa-solid fa-user"></i>Passengers: 06</p>
+      </div>
+    </div>
+  </body>
+</html>

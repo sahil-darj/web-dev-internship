@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .maindiv {
+        height: 1000px;
+        width: 100%;
+        border: 2px solid black;
+        position: relative;
+      }
+
+      .div1::after {
+        content: "04";
+        font-size: 180px;
+        position: absolute;
+        right: 1050px;
+        top: 150px;
+        /* z-index: -1; */
+      }
+      .div2,
+      .div3 {
+        height: 400px;
+        width: 400px;
+      }
+      .div2 {
+        position: absolute;
+        top: 50px;
+        left: 30%;
+        /* z-index: -1; */
+      }
+      .div2 img,
+      .div3 img {
+        height: 100%;
+        width: 100%;
+      }
+
+      .div3 {
+        position: absolute;
+        bottom: 20%;
+        right: 40%;
+
+        /* z-index: -1; */
+      }
+    </style>
+  </head>
+  <body>
+    <div class="maindiv">
+      <div class="div1"></div>
+      <div class="div2">
+        <img src="image-2.jpg" />
+      </div>
+
+      <div class="div3">
+        <img src="image-3.jpg" />
+      </div>
+    </div>
+  </body>
+</html>
