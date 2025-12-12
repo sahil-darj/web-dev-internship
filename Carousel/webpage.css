@@ -1,0 +1,82 @@
+.t1 {
+  position: relative;
+  display: inline-block;
+  font-weight: 600;
+  color: #111;
+  background: transparent;
+  padding: 6px 12px;
+  line-height: 1;
+  overflow: hidden; /* hide sliding text outside box */
+  min-width: 80px; /* keep width stable (adjust as needed) */
+  text-align: center;
+  transition: color 0.25s ease; /* fade original text */
+  box-sizing: border-box;
+}
+
+/* we use ::after for the hover text */
+.t1::after {
+  content: "Add to Cart"; /* hover text */
+  position: absolute;
+  top: 50%;
+  left: -100%; /* start completely left outside */
+  transform: translateY(-50%); /* vertical center */
+  white-space: nowrap;
+  color: #090909; /* hover color */
+  font-weight: 700;
+  transition: left 0.45s cubic-bezier(0.22, 0.9, 0.32, 1), opacity 0.25s;
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* when hovering, hide original text (via color) and slide ::after in */
+.t1:hover {
+  color: transparent; /* hide original text smoothly */
+}
+.t1:hover::after {
+  left: 0; /* slide to visible position */
+  opacity: 1;
+}
+
+/* optional: smoother reverse animation if you move out quickly */
+.t1:not(:hover)::after {
+  transition: left 0.45s cubic-bezier(0.65, 0.05, 0.36, 1), opacity 0.2s;
+}
+.footer {
+  margin-top: 750px;
+  background-color: #ffffff;
+  padding: 50px 0;
+  color: rgb(50, 38, 38);
+}
+.footer i {
+  color: white;
+  margin-right: 10px;
+}
+.footer a {
+  display: block;
+  color: white;
+  text-decoration: none;
+  margin-bottom: 8px;
+}
+.footer input {
+  width: 100%;
+  padding: 8px;
+  border-radius: 5px;
+  border: none;
+  margin-bottom: 10px;
+}
+.footer .welcomebtn {
+  background-color: orange;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+}
+.footer img {
+  width: 100%;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+input::placeholder {
+  color: white;
+  opacity: 1;
+}

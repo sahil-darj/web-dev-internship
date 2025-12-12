@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <!-- Bootstrap -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+
+    <!-- Slick -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick-theme.min.css"
+    />
+
+    <style>
+      body {
+        background-color: lightgray;
+        margin: 0px;
+        padding: 0px;
+      }
+      .square-card {
+        width: 100%;
+        aspect-ratio: 1 / 1;
+        border-radius: 20px;
+        color: #fff;
+        padding: 25px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        transition: 0.4s ease;
+        text-align: center;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+      }
+
+      .square-card:hover {
+        transform: translateY(-10px) scale(1.05);
+        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.25);
+      }
+
+      .c1 {
+        background: linear-gradient(135deg, #ff7b7b, #ff3d3d);
+      }
+      .c2 {
+        background: linear-gradient(135deg, #6c63ff, #3f37c9);
+      }
+      .c3 {
+        background: linear-gradient(135deg, #32d5a4, #0ea57a);
+      }
+
+      .square-card h4 {
+        font-weight: 700;
+        margin-bottom: 10px;
+      }
+      .square-card p {
+        font-size: 14px;
+        opacity: 0.9;
+      }
+
+      /* Remove unwanted margins */
+      .slick-slide {
+        padding: 10px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="container py-5">
+      <div class="slider">
+        <!-- Card 1 -->
+        <div>
+          <div class="square-card c1">
+            <h4>Creative Design</h4>
+            <p>Modern colorful square card using Bootstrap.</p>
+          </div>
+        </div>
+
+        <!-- Card 2 -->
+        <div>
+          <div class="square-card c2">
+            <h4>Responsive Layout</h4>
+            <p>Auto adjusts on all screen sizes.</p>
+          </div>
+        </div>
+
+        <!-- Card 3 -->
+        <div>
+          <div class="square-card c3">
+            <h4>Smooth Hover</h4>
+            <p>Animated scaling + shadow effect.</p>
+          </div>
+        </div>
+
+        <div>
+          <div class="square-card c1">
+            <h4>Creative Design</h4>
+            <p>Modern colorful square card using Bootstrap.</p>
+          </div>
+        </div>
+
+        <!-- Card 2 -->
+        <div>
+          <div class="square-card c2">
+            <h4>Responsive Layout</h4>
+            <p>Auto adjusts on all screen sizes.</p>
+          </div>
+        </div>
+
+        <!-- Card 3 -->
+        <div>
+          <div class="square-card c3">
+            <h4>Smooth Hover</h4>
+            <p>Animated scaling + shadow effect.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- jQuery / Slick -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js"></script>
+
+    <script>
+      $(".slider").slick({
+        dots: true,
+        infinite: true,
+        speed: 300,
+        slidesToShow: 4,
+        slidesToScroll: 1,
+
+        responsive: [
+          {
+            breakpoint: 992,
+            settings: {
+              slidesToShow: 2,
+            },
+          },
+          {
+            breakpoint: 576,
+            settings: {
+              slidesToShow: 1,
+            },
+          },
+        ],
+      });
+    </script>
+  </body>
+</html>

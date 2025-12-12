@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Add Remove Slides</title>
+
+    <!-- Slick CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick-theme.css"
+    />
+
+    <style>
+      .slider img {
+        width: 100%;
+        border-radius: 10px;
+      }
+
+      button {
+        padding: 10px 20px;
+        margin: 10px;
+        border: none;
+        border-radius: 8px;
+        background: #007bff;
+        color: #fff;
+        cursor: pointer;
+      }
+      button:hover {
+        background: #0056b3;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="container" style="max-width: 700px; margin: 20px auto">
+      <div class="slider">
+        <div><img src="https://picsum.photos/700/300?random=1" /></div>
+        <div><img src="https://picsum.photos/700/300?random=2" /></div>
+        <div><img src="https://picsum.photos/700/300?random=3" /></div>
+      </div>
+
+      <div class="text-center mt-4">
+        <button id="addSlide">Add Slide</button>
+        <button id="removeSlide">Remove Slide</button>
+      </div>
+    </div>
+
+    <!-- jQuery + Slick -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js"></script>
+
+    <script>
+      let counter = 4;
+
+      // Initialize slider
+      $(".slider").slick({
+        slidesToShow: 1,
+        dots: true,
+        arrows: true,
+      });
+
+      // Add Slide
+      $("#addSlide").click(function () {
+        const newSlide = `<div><img src="https://picsum.photos/700/300?random=${counter}"></div>`;
+        $(".slider").slick("slickAdd", newSlide);
+        counter++;
+      });
+
+      // Remove Last Slide — corrected
+      $("#removeSlide").click(function () {
+        const slickObj = $(".slider").slick("getSlick");
+        const lastIndex = slickObj.slideCount - 1;
+
+        // don't remove if no slides left
+        if (lastIndex >= 0) {
+          $(".slider").slick("slickRemove", lastIndex);
+        }
+      });
+    </script>
+  </body>
+</html>

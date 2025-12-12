@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hero Slider</title>
+
+    <!-- Bootstrap -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+
+    <!-- Owl CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css"
+    />
+
+    <style>
+      body {
+        margin: 0;
+        font-family: Arial;
+        background: #fff;
+      }
+
+      .hero-area {
+        width: 100%;
+        height: 100%;
+        background: #f6f6f6;
+        position: relative;
+        display: flex;
+        align-items: center;
+        overflow: hidden;
+      }
+
+      /* LEFT NUMBER NAVIGATION */
+      .slide-nav {
+        position: absolute;
+        left: 50px;
+        top: 50%;
+        transform: translateY(-50%);
+      }
+
+      .slide-nav div {
+        font-size: 18px;
+        font-weight: 500;
+        color: #999;
+        margin: 25px 0;
+        cursor: pointer;
+        position: relative;
+        padding-left: 20px;
+        transition: 0.3s;
+      }
+
+      .slide-nav div.active {
+        color: #000;
+        font-weight: 700;
+      }
+
+      .slide-nav div.active::after {
+        content: "";
+        width: 40px;
+        height: 2px;
+        background: #000;
+        position: absolute;
+        left: 40px;
+        top: 50%;
+      }
+
+      /* CENTER SLIDER IMAGE */
+      .owl-carousel .item img {
+        height: 320px;
+        width: 100%;
+        object-fit: contain;
+        display: block;
+        margin: auto;
+      }
+
+      .hero-slider {
+        width: 450px;
+        margin: auto;
+      }
+
+      /* TEXT BOX */
+      .text-box {
+        position: absolute;
+        right: 80px;
+        bottom: 120px;
+        max-width: 380px;
+      }
+
+      .text-box h2 {
+        font-size: 34px;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        font-weight: 700;
+      }
+
+      .text-box p {
+        color: #777;
+        line-height: 1.5;
+        margin-top: 10px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="hero-area">
+      <!-- LEFT 01-02-03 BUTTONS -->
+      <div class="slide-nav">
+        <div class="nav-btn active" data-slide="0">01</div>
+        <div class="nav-btn" data-slide="1">02</div>
+        <div class="nav-btn" data-slide="2">03</div>
+      </div>
+
+      <!-- CENTER SLIDER -->
+      <div class="owl-carousel hero-slider">
+        <div class="item"><img src="./src/1.jpg" /></div>
+        <div class="item"><img src="./src/3.jpg" /></div>
+        <div class="item"><img src="./src/4.jpg" /></div>
+      </div>
+
+      <!-- RIGHT TEXT -->
+      <div class="text-box">
+        <h2>Contemporary Design.</h2>
+        <p>
+          A large set of beautifully flexible layouts lets you create a stylish
+          and modern website easily.
+        </p>
+      </div>
+    </div>
+
+    <!-- SCRIPTS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+
+    <script>
+      var owl = $(".hero-slider");
+
+      // Initialize Owl Carousel
+      owl.owlCarousel({
+        items: 1,
+        loop: true,
+        dots: false,
+        nav: false,
+        autoplay: true,
+        autoplayTimeout: 3000,
+        animateOut: "fadeOut",
+        animateIn: "fadeIn",
+      });
+
+      // Click → Slide Change
+      $(".nav-btn").click(function () {
+        let index = $(this).data("slide");
+        owl.trigger("to.owl.carousel", [index, 300]);
+
+        $(".nav-btn").removeClass("active");
+        $(this).addClass("active");
+      });
+
+      // Sync when auto slides
+      owl.on("changed.owl.carousel", function (event) {
+        let index = event.item.index - 2;
+        if (index < 0) index = 2;
+
+        $(".nav-btn").removeClass("active");
+        $(`.nav-btn[data-slide="${index}"]`).addClass("active");
+      });
+    </script>
+  </body>
+</html>
